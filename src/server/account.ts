@@ -8,7 +8,8 @@ mp.events.add("playerJoin", (player: PlayerMp) => {
         operator: false,
         staff: false,
         cash: 0,
-        bank: 0
+        bank: 0,
+        id :0
     };
 
     player.account = account;
@@ -19,6 +20,7 @@ mp.events.add("player.loadAccountData", (player: PlayerMp, res: IUser): any => {
     player.chat!.init(res);
     player.chat.send(`Welcome back, <span style="color: red">${player.name}!</span>`);
     
+    player.account.id = mp.players.toArray().indexOf(player);
     player.account.operator = res.operator;
     player.account.staff = res.staff;
     player.account.cash = res.cash;

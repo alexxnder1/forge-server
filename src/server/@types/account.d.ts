@@ -1,5 +1,6 @@
 declare global {
 	interface Account {
+		id: number,
 		loginTries: number;
 		logged: boolean;
 		chat?: {

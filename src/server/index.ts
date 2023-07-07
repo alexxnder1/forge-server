@@ -4,3 +4,4 @@ import './authentication';
 import './account';
 import './chat';
 import './admin';
+import "./vehicleManager";
