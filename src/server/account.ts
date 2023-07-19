@@ -9,13 +9,17 @@ mp.events.add("playerJoin", (player: PlayerMp) => {
         staff: false,
         cash: 0,
         bank: 0,
-        id :0
+        id :0,
+        hunger: 0,
+        thirst: 0
     };
 
     player.account = account;
 });
 
 mp.events.add("player.loadAccountData", (player: PlayerMp, res: IUser): any => {
+    player.account.logged = true;
+
     player.call("onPlayerLogged", [res]);
     player.chat!.init(res);
     player.chat.send(`Welcome back, <span style="color: red">${player.name}!</span>`);
@@ -25,6 +29,8 @@ mp.events.add("player.loadAccountData", (player: PlayerMp, res: IUser): any => {
     player.account.staff = res.staff;
     player.account.cash = res.cash;
     player.account.bank = res.bank;
+    player.account.hunger = res.hunger;
+    player.account.thirst = res.thirst;
 
     if(player.account.operator || player.account.staff)
     {

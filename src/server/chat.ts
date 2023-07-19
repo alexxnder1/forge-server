@@ -1,5 +1,7 @@
 import { HEX_COLORS } from "@shared/colors";
 import User, { IUser } from "./schemas/User";
+import { logManager } from "./logs";
+import { LOG_TYPE } from "./schemas/Logs";
 
 const BROADCAST_DISTANCE: number = 10;
 
@@ -18,8 +20,11 @@ export class Command {
 
 mp.events.add("playerJoin", (player: PlayerMp) => {
     var chat: Chat = {
-        send(s: string) {
-            player.call("chat.send.message", ["", s]);
+        send(s: string, f?: string, l?: boolean) {
+            player.call("chat.send.message", [s, f, l]);
+            
+            if(l === true)
+                logManager.insert(s);
         },
 
         sendAdmin(s: string) {
@@ -27,6 +32,8 @@ mp.events.add("playerJoin", (player: PlayerMp) => {
                 if(p.account.operator || p.account.staff)
                     this.send(`${HEX_COLORS.orange} ${s}`);
             });
+
+            logManager.insert(s, LOG_TYPE.LOG_TYPE_ADMIN);
         },
 
         sendSyntax(s: string) {
@@ -88,7 +95,7 @@ mp.events.add("chat.broadcast.message", (player: PlayerMp, _:any, text: string) 
 
     mp.players.forEach((target:PlayerMp) => {
         if(target.dist(player.position) <= BROADCAST_DISTANCE)
-            target.call("chat.send.message", [target.name, text, (target === player)]);
+            target.chat.send(text, target.name, (target === player));
     });
 });
 

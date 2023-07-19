@@ -39,10 +39,14 @@
 	},
 	"dependencies": {
 		"@types/crypto-js": "^4.1.1",
+		"@types/geoip-lite": "^1.4.1",
+		"axios": "^1.4.0",
 		"colorette": "^2.0.16",
 		"crypto-js": "^4.1.1",
 		"dotenv": "^16.0.0",
-		"mongoose": "^7.3.0"
+		"geoip-lite": "^1.4.7",
+		"mongoose": "^7.3.0",
+		"node-fetch": "^3.3.1"
 	},
 	"prettier": {
 		"$schema": "http://json.schemastore.org/prettierrc",

@@ -14,6 +14,8 @@ declare global {
 		staff: boolean,
 		cash: number,
 		bank: number,
+		hunger: number,
+		thirst: number
 	}
 	
 	interface PlayerMp {

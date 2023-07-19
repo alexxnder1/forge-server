@@ -1,6 +1,8 @@
 export const HEX_COLORS = {
 	orange: "#cf830a",
-	white: "#ffffff"
+	white: "#ffffff",
+	grey: "#808080",
+	purple: "#6f2ed1"
 }
 
 export function GenerateDoubleArrayColors() {

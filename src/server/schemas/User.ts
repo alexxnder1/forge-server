@@ -15,9 +15,10 @@ export interface IUser {
     },
     operator: boolean,
     staff: boolean,
-
     cash: number,
-    bank: number
+    bank: number,
+    hunger: number,
+    thirst: number
 }
 
 const userSchema = new Schema<IUser>({
@@ -33,12 +34,12 @@ const userSchema = new Schema<IUser>({
         timestamp: { type: Boolean, default: true, required: true },
         links: { type: Boolean, default: true, required: true }
     },
-
     operator: {type: Boolean, default: false}, 
     staff:  {type: Boolean, default: false},
-
     cash: {type:Number, default: 1000, rqeuired: true},
     bank: {type:Number, default: 0, rqeuired: true},
+    hunger: {type: Number, default: 100, required: true},
+    thirst: {type: Number, default: 100, required: true},
 });
 
 export default model<IUser>("User", userSchema);

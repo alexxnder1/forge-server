@@ -1,3 +1,4 @@
+import * as colors from "./json/console-colors.json";
 import * as mongoose from "mongoose";
 
 async function main(): Promise<void> {
@@ -5,5 +6,5 @@ async function main(): Promise<void> {
 }
 
 main().catch(err => console.log(err)).then(() => {
-    console.log('[MongoDB] The connection was successfully established.');
+    console.log(`${colors.red}[MongoDB]${colors.reset} The connection was successfully established.`);
 });

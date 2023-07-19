@@ -19,8 +19,8 @@ mp.events.add("chat.broadcast.message", (text: string):any => {
     mp.events.callRemote("chat.broadcast.message", mp.players.local, text);
 });
 
-mp.events.add("chat.send.message", (from: string, text: string, local?: boolean): any => {
-    chatBrowser?.execute(`window.SendMessage({ local: ${local}, from: '${from}', content: '${text}'})`);
+mp.events.add("chat.send.message", (text: string, from?: string, local?: boolean): any => {
+    chatBrowser?.execute(`window.SendMessage({ local: ${local ? local : false}, from: '${from ? from : ''}', content: '${text}'})`);
 });
 
 mp.events.add("chat.set.settings", (cmds: string[], width: number, height: number, fontSize: number, spacing: number, timestamp: boolean, links: boolean) => {

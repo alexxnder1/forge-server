@@ -15,7 +15,7 @@ mp.events.add("auth.submit.login", async function (player: PlayerMp, _:any, pass
         if (res) {
             player.call("auth.destroy");
             mp.events.call("player.loadAccountData", player, res);
-            player.spawn(new mp.Vector3(0, 0, 0));
+            player.spawn(new mp.Vector3(-1037.745849609375, -2738.224365234375, 13.800677299499512));
         }
 
         else{
