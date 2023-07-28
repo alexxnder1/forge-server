@@ -1,3 +1,5 @@
+import { Inventory } from "@/inventory";
+
 declare global {
 	interface Account {
 		id: number,
@@ -15,7 +17,8 @@ declare global {
 		cash: number,
 		bank: number,
 		hunger: number,
-		thirst: number
+		thirst: number,
+		inventory: Inventory
 	}
 	
 	interface PlayerMp {

@@ -9,3 +9,4 @@ import "./logs";
 import "./vehicles/vehicles";
 import "./time-weather";
 import "./scoreboard";
+import "./inventory";

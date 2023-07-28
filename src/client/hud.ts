@@ -1,5 +1,4 @@
-var hudBrowser: BrowserMp;
-let temp = 0;
+export var hudBrowser: BrowserMp;
 
 mp.events.add("onPlayerLogged", (res: any): void => {
     hudBrowser = mp.browsers.new("http://localhost:3000/hud");
@@ -7,7 +6,6 @@ mp.events.add("onPlayerLogged", (res: any): void => {
         hudBrowser.execute(`window.SetStatsData('${mp.players.local.name}', ${mp.players.toArray().indexOf(mp.players.local)});`);  
         hudBrowser.execute(`window.SetMoney(${res.cash}, ${res.bank});`);
     });
-
     updateTemp();
 });
 

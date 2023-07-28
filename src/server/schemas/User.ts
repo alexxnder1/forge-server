@@ -1,3 +1,4 @@
+import { Inventory } from "@/inventory";
 import { Schema , model } from "mongoose";
 
 export interface IUser {
@@ -18,7 +19,8 @@ export interface IUser {
     cash: number,
     bank: number,
     hunger: number,
-    thirst: number
+    thirst: number,
+    inventory: Inventory
 }
 
 const userSchema = new Schema<IUser>({
@@ -40,6 +42,7 @@ const userSchema = new Schema<IUser>({
     bank: {type:Number, default: 0, rqeuired: true},
     hunger: {type: Number, default: 100, required: true},
     thirst: {type: Number, default: 100, required: true},
+    inventory: {type: Object, required: true}
 });
 
 export default model<IUser>("User", userSchema);

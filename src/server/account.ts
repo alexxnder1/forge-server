@@ -11,7 +11,12 @@ mp.events.add("playerJoin", (player: PlayerMp) => {
         bank: 0,
         id :0,
         hunger: 0,
-        thirst: 0
+        thirst: 0,
+        inventory: {
+            items: [],
+            give: () => {}
+        }
+
     };
 
     player.account = account;

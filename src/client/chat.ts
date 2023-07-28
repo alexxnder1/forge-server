@@ -1,4 +1,6 @@
-var chatBrowser: BrowserMp;
+import { inventoryCef } from "./inventory";
+
+export var chatBrowser: BrowserMp;
 mp.gui.chat.show(false);
 
 mp.events.add("chat.create", () => {
@@ -7,6 +9,9 @@ mp.events.add("chat.create", () => {
 });
 
 mp.keys.bind(0x54, true, () => {
+    // if(inventoryCef.active)
+    //     return;
+
     chatBrowser?.execute(`window.FocusChat(true)`);
     mp.gui.cursor.visible = true;
 });

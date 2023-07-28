@@ -1,0 +1,10 @@
+[
+    {
+        "name": "Orange",
+        "description":"da",
+        "image": "https://www.boeschbodenspies.com/wp-content/uploads/2017/08/orange.png",
+        "stackable": true,
+        "maxStackAmount": 10,
+        "objectName": "ng_proc_food_ornge1a"
+    }
+]
